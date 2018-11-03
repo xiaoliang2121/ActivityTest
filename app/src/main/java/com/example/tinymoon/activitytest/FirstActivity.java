@@ -1,6 +1,7 @@
 package com.example.tinymoon.activitytest;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -47,8 +48,12 @@ public class FirstActivity extends AppCompatActivity {
 //                finish();
 //                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
 //                startActivity(intent);
-                Intent intent = new Intent("com.example.tinymoon.activitytest.ACTION_START");
-                intent.addCategory("com.example.tinymoon.activitytest.MY_CATEGORY");
+//                Intent intent = new Intent("com.example.tinymoon.activitytest.ACTION_START");
+//                intent.addCategory("com.example.tinymoon.activitytest.MY_CATEGORY");
+//                startActivity(intent);
+
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:10086"));
                 startActivity(intent);
             }
         });
