@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class FirstActivity extends AppCompatActivity {
+    static final String TAG = "FirstActivity";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,6 +40,7 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "Task id is " + getTaskId());
         setContentView(R.layout.first_layout);
 
         Button button1 = (Button)findViewById(R.id.button_1);
@@ -74,10 +76,20 @@ public class FirstActivity extends AppCompatActivity {
 //                startActivity(intent);
 
 //                7
+//                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+//                startActivityForResult(intent,1);
+
+//                8
                 Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
-                startActivityForResult(intent,1);
+                startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart: ");
     }
 
     @Override
