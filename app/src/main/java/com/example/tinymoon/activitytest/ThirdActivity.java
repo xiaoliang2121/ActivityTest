@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class ThirdActivity extends AppCompatActivity {
+public class ThirdActivity extends BasicActivity {
     static final String TAG = "ThirdActivity";
 
     @Override
@@ -15,12 +15,13 @@ public class ThirdActivity extends AppCompatActivity {
         Log.d(TAG, "Task id is "+getTaskId());
         setContentView(R.layout.activity_third);
 
-//        Button button3 = (Button)findViewById(R.id.button_3);
-//        button3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        Button button3 = (Button)findViewById(R.id.button_3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                finish();
-//            }
-//        });
+                ActivityCollector.finishAll();
+            }
+        });
     }
 }
